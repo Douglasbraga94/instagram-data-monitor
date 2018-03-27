@@ -10,20 +10,20 @@ from selenium.webdriver.chrome.options import Options
 
 class InstagramUser:
 
-	def __init__(self,username):
+    def __init__(self,username):
 
-		logging.debug('Retrieving valid access_token for API access')
+	    logging.debug('Retrieving valid access_token for API access')
 		
-		insta_user='YOUR_USERNAME'
-		insta_password='YOUR_PASSWORD'
-		client_id='YOUR_CLIENT_ID'
-		redirect_uri='YOUR_REDIRECT_ID'
+		insta_user='instagramagile@gmail.com'
+		insta_password='instagramagile12018'
+		client_id='d92560af65cd4a86ba1a3b54bf6a4b57'
+		redirect_uri='https://github.com/Douglasbraga94/instagram-data-monitor/blob/master/.gitignore'
 
 		authorize_login_url = 'https://api.instagram.com/oauth/authorize/?client_id=%s&redirect_uri=%s&response_type=token&scope=basic+public_content'	% (client_id, redirect_uri)
 
 		chrome_options = Options()  
 		chrome_options.add_argument("--headless")
-		chrome_options.binary_location = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+		chrome_options.binary_location = '/usr/bin/google-chrome'
 
 		driver = webdriver.Chrome(executable_path=os.path.abspath("drivers/macos/chromedriver"), chrome_options=chrome_options)
 		driver.get(authorize_login_url)
