@@ -13,7 +13,7 @@ class InstagramUser:
     def __init__(self,username):
 
 	    logging.debug('Retrieving valid access_token for API access')
-		
+
 		insta_user='instagramagile@gmail.com'
 		insta_password='instagramagile12018'
 		client_id='d92560af65cd4a86ba1a3b54bf6a4b57'
@@ -21,11 +21,11 @@ class InstagramUser:
 
 		authorize_login_url = 'https://api.instagram.com/oauth/authorize/?client_id=%s&redirect_uri=%s&response_type=token&scope=basic+public_content'	% (client_id, redirect_uri)
 
-		chrome_options = Options()  
+		chrome_options = Options()
 		chrome_options.add_argument("--headless")
 		chrome_options.binary_location = '/usr/bin/google-chrome'
 
-		driver = webdriver.Chrome(executable_path=os.path.abspath("drivers/macos/chromedriver"), chrome_options=chrome_options)
+		driver = webdriver.Chrome(executable_path=os.path.abspath("drivers/linux-64/chromedriver"), chrome_options=chrome_options)
 		driver.get(authorize_login_url)
 
 		user_fld = driver.find_element_by_xpath('//*[@name="username"]')
@@ -56,4 +56,4 @@ class InstagramUser:
 
 		self.id = user['data']['id']
 		self.username = user['data']['username']
-		self.name = 'Alexandre Gomes'
+		self.name = 'Alexandre Gomes
